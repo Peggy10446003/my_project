@@ -1,0 +1,29 @@
+<div class ="mainarea">
+  <div class ="block">
+    <h2>便當列表</h2>
+    <table class = "table">
+    <thead>      
+    </thead>
+    <tbody>
+      <% @bentos.each do |bento| %>
+        <ul class = "thumbmsglist">
+          <li>
+            <em class = "smalltxt">價格 <strong class ="price"><%=h bento.price %></strong></em>
+            <h3><span class = "smalltxt" bento_name="便當名稱">名稱 : <%=h bento.bento_name %></span></h3>
+            <p class = "msgintro">便當介紹 : <%=h bento.content %></p>
+            <p class = "msginfo smalltxt">
+            <%= link_to '新增', new_bento_path, class: "btn btn-success btn-xs" %>
+            <%= link_to '檢視', bento, class: "btn btn-info btn-xs" %>
+            <%= link_to '編輯', edit_bento_path(bento), class: "btn btn-warning btn-xs" %>
+            <%= link_to '刪除', bento, method: :delete, data: { confirm: '你確定要刪除嗎?' } , class: "btn btn-danger btn-xs"%>      
+            </p>
+          </li>          
+        </ul>
+       <% end %>
+      </tbody>
+  </div>
+</div>
+    </table>
+
+
+

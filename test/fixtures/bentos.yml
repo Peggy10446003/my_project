@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bento_name: MyString
+  price: 1
+  content: MyText
+
+two:
+  bento_name: MyString
+  price: 1
+  content: MyText
