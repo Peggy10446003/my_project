@@ -2,13 +2,11 @@ class BentosController < ApplicationController
   before_action :set_bento, only: [:show, :edit, :update, :destroy]
 
   # GET /bentos
-  # GET /bentos.json
   def index
     @bentos = Bento.all
   end
 
-  # GET /bentos/1
-  # GET /bentos/1.json
+  # GET /bentos/1  
   def show
   end
 
@@ -21,43 +19,35 @@ class BentosController < ApplicationController
   def edit
   end
 
-  # POST /bentos
-  # POST /bentos.json
+  # POST /bentos  
   def create
     @bento = Bento.new(bento_params)
 
     respond_to do |format|
       if @bento.save
-        format.html { redirect_to @bento, notice: 'Bento was successfully created.' }
-        format.json { render :show, status: :created, location: @bento }
+        format.html { redirect_to @bento, notice: 'Bento was successfully created.' }       
       else
-        format.html { render :new }
-        format.json { render json: @bento.errors, status: :unprocessable_entity }
+        format.html { render :new }        
       end
     end
   end
 
-  # PATCH/PUT /bentos/1
-  # PATCH/PUT /bentos/1.json
+  # PATCH/PUT /bentos/1  
   def update
     respond_to do |format|
       if @bento.update(bento_params)
-        format.html { redirect_to @bento, notice: 'Bento was successfully updated.' }
-        format.json { render :show, status: :ok, location: @bento }
+        format.html { redirect_to @bento, notice: '便當修改成功.' }        
       else
-        format.html { render :edit }
-        format.json { render json: @bento.errors, status: :unprocessable_entity }
+        format.html { render :edit }        
       end
     end
   end
 
-  # DELETE /bentos/1
-  # DELETE /bentos/1.json
+  # DELETE /bentos/1  
   def destroy
     @bento.destroy
     respond_to do |format|
-      format.html { redirect_to bentos_url, notice: 'Bento was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to bentos_url, notice: '便當刪除成功.' }      
     end
   end
 
