@@ -1,13 +1,18 @@
-<h2><%= @bento.bento_name %></h2>
+<table class="table table-action">
+  <h2><%= @bento.bento_name %></h2>
 
-<p>
-  <strong>Price:</strong>
-  <%= @bento.price %>
-</p>
+  <em class="t-small">
+    <strong  class ="price">價格:</strong>
+    <%= @bento.price %>
+  </em>
 
-<p>
-  <strong>Content:</strong>
-  <%= @bento.content %>
-</p>
+  <p class = "msgintro">
+    <strong>便當介紹:</strong>
+    <%= @bento.content %>
+  </p>
 
-<%= link_to 'Back', bentos_path %>
+  <%= link_to 'Back', bentos_path %>
+</table>
+
+
+

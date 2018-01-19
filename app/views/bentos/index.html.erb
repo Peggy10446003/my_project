@@ -1,29 +1,33 @@
-<div class ="mainarea">
-  <div class ="block">
-    <h2>便當列表</h2>
-    <table class = "table">
-    <thead>      
+<h2>便當列表</h2>
+<%= link_to "<span class='glyphicon glyphicon-knight'></span> 新增便當".html_safe, new_bento_path, class: "btn btn-success btn-xs" %>
+
+  <table class="table table-action" >
+    <thead>
+      <tr>
+        <th class="t-medium"> 名稱 </th>
+        <th class="t-small"> 價格 </th>
+        <th class="t-long"> 便當介紹  </th>
+        <th></th>
+      </tr>
     </thead>
     <tbody>
       <% @bentos.each do |bento| %>
-        <ul class = "thumbmsglist">
-          <li>
-            <em class = "smalltxt">價格 <strong class ="price"><%=h bento.price %></strong></em>
-            <h3><span class = "smalltxt" bento_name="便當名稱">名稱 : <%=h bento.bento_name %></span></h3>
-            <p class = "msgintro">便當介紹 : <%=h bento.content %></p>
-            <p class = "msginfo smalltxt">
-            <%= link_to '新增', new_bento_path, class: "btn btn-success btn-xs" %>
-            <%= link_to '檢視', bento, class: "btn btn-info btn-xs" %>
+        <tr>
+          <td><%= link_to bento.bento_name, bento_path(bento) %></td>
+          <td><%= bento.price %> 元</td>
+          <td><%= bento.content %></td>
+          <td>
             <%= link_to '編輯', edit_bento_path(bento), class: "btn btn-warning btn-xs" %>
-            <%= link_to '刪除', bento, method: :delete, data: { confirm: '你確定要刪除嗎?' } , class: "btn btn-danger btn-xs"%>      
-            </p>
-          </li>          
-        </ul>
+            <%= link_to '刪除', bento, method: :delete, data: { confirm: '你確定要刪除嗎?' } , class: "btn btn-danger btn-xs"%>
+          </td>
+        </tr>
+      <ht />
        <% end %>
       </tbody>
-  </div>
-</div>
-    </table>
+      <tfoot>        
+      </tfoot>      
+ </table>
+  
 
 
 

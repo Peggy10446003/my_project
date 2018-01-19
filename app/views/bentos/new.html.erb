@@ -1,8 +1,6 @@
-<table class = "table" cellspacing ="1" cellpadding ="2" width ="99%" align ="center" border ="0">
-  <h2>新增 Bento</h2>
+<h2>新增 Bento</h2>
 
-</table>
+<%= render "form", bento: @bento %>
 
-<%= render 'form', bento: @bento %>
-
-
+ <br />
+<%= link_to '回便當列表', bentos_path %>

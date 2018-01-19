@@ -37,8 +37,8 @@ th {
 }
 
 td {
-  padding: 0 5px 7px;
-}
+  padding: 0 5px 2px;
+ }
 
 div {
   &.field, &.actions {
@@ -72,7 +72,7 @@ div {
     background-color: #c00;
     color: #fff;
   }
-
+  
   ul li {
     font-size: 12px;
     list-style: square;
@@ -83,97 +83,75 @@ label {
   display: block;
 }
 
-.mainarea {
-  margin: 0 10px;
-  width: 600px;
-  float: center;
-  text-align: left;
+table {
+  font-family: arial;
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-.block {
-  margin: 0 0 6px;
-  border: 1px solid #DFDFDF;
-  background: #FFF;
+.table { 
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-.block h2 {
-  margin: 1px 0 0;
-  font-size: 2em;
-  color: #08749d;
-  line-height: 26px;
-  padding-left: 0.5em;
-  background: url(../images/dotline_h.gif) repeat-x bottom;
-}
-
-.thumbmsglist {
-  margin: 0;
-  padding: 10px;
-  list-style: none;
-}
-
-.thumbmsglist li div {
-  float: left;
-  display: inline;
-  margin-left: -100px;
-  text-align: center;
-  border: 1px solid #DFDFDF;
-  padding: 5px;
-  width: 87px;
-  height: 87px;
-  position: relative;
-}
-.thumbmsglist li div img {
-  max-height: 75px;
-  max-width: 75px;
-  width: expression(this.width > 75 && this.height < this.width ? 75: true);
-  height: expression(this.height > 75 ? 75: true);
-}
-
-.thumbmsglist li p{
-  margin: 0px;
-}
-
-.thumbmsglist li p a{
-  color: #090 !important;
-}
-
-.thumbmsglist li em{
-  float: right;
-  font-style: normal;
-  margin-top: 6px;  
-}
-
-.thumbmsglist li em strong{
-  color: #090;  
-}
-
-.thumbmsglist li h3{
-  margin: 0;
-  line-height: 26px;
-  height: 26px;
-  overflow: hidden;
-  font-size: 2em;
-  padding-left: 5px;
-}
-
-.msgintro {
-  background: #F5FbE4;
-  padding: 15px 5px 0;
-  height: 100px;
-  overflow: hidden;
-}
-
-.thumbmsglist .msginfo {
-  background: #F5FBE4 url(../images/dotline_h.gif) repeat-x bottom;
-  padding: 5px 5px 10px;
-}
-
-.smalltxt {
-  font-size: 15px;
-  color: #999;
+.table th, .table td {
   font-weight: normal;
+  font-size: 15px;
+  font-family:serif;
+  padding: 8px 15px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: middle;
+  border-top: 1px solid #dddddd;
+}
+.table thead th {
+  background: #eeeeee;
+  vertical-align: bottom;
+}   
+.table tbody > tr:nth-child(odd) > td,
+.table tbody > tr:nth-child(odd) > th {
+  background-color: #fafafa;
+}    
+.table .t-small {
+  width: 7%;
+}
+.table .t-medium {
+  width: 16%;
+}
+.table .t-long {
+  width: 68%;
+}
+.table .t-status {
+  font-weight: bold;
+}
+.table .t-active {
+  color: #46a546;
+}
+.table .t-inactive {
+  color: #e00300;
+}
+.table .t-draft {
+  color: #f89406;
+}
+.table .t-scheduled {
+  color: #049cdb;
 }
 
-.smalltxt a, .smalltxt a:visited{
-  color: #EAEAEA !important;
+/* Small Sizes */
+@media (max-width: 480px) { 
+  .table-action thead {
+    display: none;
+  }
+  .table-action tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  .table-action td {
+    border: 0;
+  }
+  .table-action td:not(:first-child) {
+    display: block;
+  }
 }
+

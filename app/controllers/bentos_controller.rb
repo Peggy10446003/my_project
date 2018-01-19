@@ -3,7 +3,7 @@ class BentosController < ApplicationController
 
   # GET /bentos
   def index
-    @bentos = Bento.all
+    @bentos = Bento.all    
   end
 
   # GET /bentos/1  
@@ -12,7 +12,7 @@ class BentosController < ApplicationController
 
   # GET /bentos/new
   def new
-    @bento = Bento.new
+    @bento = Bento.new    
   end
 
   # GET /bentos/1/edit
@@ -25,7 +25,7 @@ class BentosController < ApplicationController
 
     respond_to do |format|
       if @bento.save
-        format.html { redirect_to @bento, notice: 'Bento was successfully created.' }       
+        format.html { redirect_to bentos_path, notice: '便當新增成功.' }       
       else
         format.html { render :new }        
       end
@@ -36,7 +36,7 @@ class BentosController < ApplicationController
   def update
     respond_to do |format|
       if @bento.update(bento_params)
-        format.html { redirect_to @bento, notice: '便當修改成功.' }        
+        format.html { redirect_to bentos_path, notice: '便當修改成功.' }        
       else
         format.html { render :edit }        
       end
@@ -47,7 +47,7 @@ class BentosController < ApplicationController
   def destroy
     @bento.destroy
     respond_to do |format|
-      format.html { redirect_to bentos_url, notice: '便當刪除成功.' }      
+      format.html { redirect_to bentos_path, notice: '便當刪除成功.' }      
     end
   end
 
@@ -61,4 +61,10 @@ class BentosController < ApplicationController
     def bento_params
       params.require(:bento).permit(:bento_name, :price, :content)
     end
+    
+     def find_bento
+       @bento = bento.find(params[:id])
+     rescue
+       redirect_to bentos_path, notice: "查無此便當"
+     end
 end
